@@ -297,9 +297,7 @@ ViewBag.Subjects = new SelectList(subjects, "Id", "Name");
 
 ---
 
-## HTML `<select>`
-
----
+## 7.5 HTML `<select>`
 
 ## 1️⃣ Model
 
