@@ -1,4 +1,4 @@
-## 8. Page Layout
+# 8. Page Layout
 
 ក្នុងការកសាង website ជាទូទៅ, website ត្រូវមាន **menu, header, footer និង sidebar** ជាធាតុមូលដ្ឋាន។
 **Layout page** ជួយកំណត់ UI មូលដ្ឋានទាំងនេះមួយកន្លែង, ហើយអាចប្រើបានទាំងមូលនៅក្នុងគេហទំព័រ។

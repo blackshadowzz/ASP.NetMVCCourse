@@ -1,4 +1,4 @@
-## 5. Razor Syntax
+# 5. Razor Syntax
 
 **Razor** គឺជា **View Engine** មួយក្នុង **ASP.NET MVC** ដែលអនុញ្ញាតិឱ្យអ្នកសរសេរ **C# code** ជាមួយ **HTML** នៅក្នុង **View** តែមួយ។
 Razor syntax មាន ២ ប្រភេទសំខាន់៖

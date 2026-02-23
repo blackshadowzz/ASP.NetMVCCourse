@@ -1,4 +1,4 @@
-## **1. Form Submission (POST / GET)**
+# **1. Form Submission (POST / GET)**
 
 Form គឺជារបៀបធម្មតា និងសាមញ្ញបំផុតសម្រាប់បញ្ជូនទិន្ន័យពី View ទៅ Controller។
 
