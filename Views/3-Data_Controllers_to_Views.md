@@ -157,10 +157,6 @@ public class HomeController : Controller
 
 ---
 
-ល្អ! ខាងក្រោមខ្ញុំនឹងបង្ហាញវិធីប្រើ **SelectList និង DropDownList** ជាមួយ **ViewBag / ViewData** ក្នុង ASP.NET MVC ដើម្បីបង្កើត **form dropdown** សម្រាប់ការជ្រើសរើស។
-
----
-
 ## 7. SelectList និង DropDownList ជាមួយ ViewBag / ViewData
 
 ### 7.1 កំណត់ SelectList ក្នុង Controller
@@ -301,7 +297,7 @@ ViewBag.Subjects = new SelectList(subjects, "Id", "Name");
 
 ---
 
-## HTML <select>
+## HTML `<select>`
 
 ---
 
