@@ -1,7 +1,7 @@
 ## 8. Page Layout
 
 ក្នុងការកសាង website ជាទូទៅ, website ត្រូវមាន **menu, header, footer និង sidebar** ជាធាតុមូលដ្ឋាន។
-**Layout page** ជួយកំណត់ UI មូលដ្ឋានទាំងនេះមួយកន្លែង, ហើយអាចប្រើបានទាំងគេហទំព័រ។
+**Layout page** ជួយកំណត់ UI មូលដ្ឋានទាំងនេះមួយកន្លែង, ហើយអាចប្រើបានទាំងមូលនៅក្នុងគេហទំព័រ។
 
 **Layout page** ត្រូវស្ថិតនៅក្នុង `Views/Shared` directory និងឈ្មោះចាប់ផ្តើមដោយ `_` (underscore) ដូចជា `_Layout.cshtml`។
 
@@ -105,10 +105,6 @@
 ---
 
 💡 **Tip**: ប្រសិនបើអ្នកមាន **multiple layouts** (e.g., one for admin, one for public), អាចបង្កើត `_AdminLayout.cshtml` និង override `Layout` នៅ page admin ផ្ទាល់ខ្លួន។
-
----
-
-បានល្អ! ខ្ញុំនឹងបង្កើតឧទាហរណ៍ **\_Layout.cshtml professional style** ដែលប្រើ **Bootstrap 5** fully responsive មាន **navbar, sidebar, footer និង content area** ហើយអាចប្រើបានត្រឹមត្រូវសម្រាប់គ្រប់ page នៅក្នុង ASP.NET Core MVC / Razor Pages។
 
 ---
 
@@ -240,7 +236,7 @@
 
 ---
 
-## **8.3 @RenderBody() និង @RenderSection()**
+# **8.3 @RenderBody() និង @RenderSection()**
 
 ### **1️⃣ @RenderBody()**
 
