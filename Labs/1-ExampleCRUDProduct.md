@@ -62,13 +62,14 @@ public class Product
 
     [Required]
     [StringLength(100)]
-    public string Name { get; set; }
+    public string Name { get; set; }="";
 
     [Range(0, 999999)]
-    public decimal Price { get; set; }
+    public decimal? Price { get; set; }
 
     [Range(0, 10000)]
-    public int Stock { get; set; }
+    public int? Stock { get; set; }
+    public int? CategoryId { get; set; } // Ref to table Categories
 }
 ```
 
