@@ -125,29 +125,29 @@ ASP.NET Core MVC អនុវត្តតាម **គំរូរចនា MVC (
 
 ASP.NET Core MVC ត្រូវបានប្រើសម្រាប់៖
 
-✅ **បង្កើត Web Application ដែលមានរចនាសម្ព័ន្ធច្បាស់លាស់**
+ **បង្កើត Web Application ដែលមានរចនាសម្ព័ន្ធច្បាស់លាស់**
 
 - ប្រើគំរូ MVC ដើម្បីរៀបចំកូដឲ្យមានលំដាប់ និងមានស្តង់ដារ។
 
-✅ **បែងចែក Logic, UI និង Data ឲ្យដាច់ពីគ្នាច្បាស់លាស់**
+ **បែងចែក Logic, UI និង Data ឲ្យដាច់ពីគ្នាច្បាស់លាស់**
 
 - Logic (Business Logic) នៅក្នុង Model/Controller
 - UI នៅក្នុង View
 - Data Layer តភ្ជាប់ជាមួយ Database
 
-✅ **បង្កើតកម្មវិធីមានសុវត្ថិភាព (Secure Applications)**
+ **បង្កើតកម្មវិធីមានសុវត្ថិភាព (Secure Applications)**
 
 - គាំទ្រ Authentication និង Authorization
 - ការពារ CSRF, XSS និងការវាយប្រហារផ្សេងៗ
 
-✅ **គាំទ្រប្រព័ន្ធធំៗ (Large-scale Systems)**
+ **គាំទ្រប្រព័ន្ធធំៗ (Large-scale Systems)**
 
 - អាចប្រើសម្រាប់ប្រព័ន្ធ E-commerce
 - ERP (Enterprise Resource Planning)
 - Banking System
 - Enterprise Applications ផ្សេងៗ
 
-✅ **អាចភ្ជាប់ជាមួយបច្ចេកវិទ្យាផ្សេងៗបានយ៉ាងងាយស្រួល**
+ **អាចភ្ជាប់ជាមួយបច្ចេកវិទ្យាផ្សេងៗបានយ៉ាងងាយស្រួល**
 
 - SQL Server
 - Entity Framework Core
@@ -158,7 +158,7 @@ ASP.NET Core MVC ត្រូវបានប្រើសម្រាប់៖
 
 ## 1.4 ហេតុអ្វីបានជា Developer ប្រើ ASP.NET Core MVC
 
-### ✅ អត្ថប្រយោជន៍ (Advantages)
+### អត្ថប្រយោជន៍ (Advantages)
 
 **1. Strongly Typed (កាត់បន្ថយ Runtime Error)**
 
@@ -196,7 +196,7 @@ ASP.NET Core MVC ត្រូវបានប្រើសម្រាប់៖
 
 ---
 
-### ❌ គុណវិបត្តិ (Disadvantages)
+### គុណវិបត្តិ (Disadvantages)
 
 **1. កម្រិតសិក្សាខ្ពស់ជាង PHP (Steeper Learning Curve)**
 

@@ -1,6 +1,6 @@
 # 1️⃣ Introduction Origins of .NET
 
-## 📌 .NET Framework
+##  .NET Framework
 
 - **Initial Release:** 2002
 - **Platform:** Windows-only
@@ -10,7 +10,7 @@
 
 ---
 
-### 🔧 Core Architecture
+### Core Architecture
 
 #### 1. CLR (Common Language Runtime)
 
@@ -45,7 +45,7 @@ Provides fundamental APIs:
 
 ---
 
-### 📚 Versions Timeline
+###  Versions Timeline
 
 | Version   | Year                      |
 | --------- | ------------------------- |
@@ -58,11 +58,11 @@ Provides fundamental APIs:
 | 4.5–4.8   | 2012–2019                 |
 | **4.8.1** | 2022 (final version line) |
 
-> ⚠️ .NET Framework is now in maintenance mode. No major new features will be added.
+>  .NET Framework is now in maintenance mode. No major new features will be added.
 
 ---
 
-### ⚠️ Limitations
+###  Limitations
 
 - Windows-only
 - Monolithic installation
@@ -73,7 +73,7 @@ Provides fundamental APIs:
 
 # 2️⃣ .NET Core (Modern Cross-Platform Foundation)
 
-## 📌 Overview
+##  Overview
 
 - **First Release:** 2016 (.NET Core 1.0)
 - **Platforms:** Windows, Linux, macOS
@@ -84,7 +84,7 @@ Provides fundamental APIs:
 
 ---
 
-## 🚀 Major Improvements Over .NET Framework
+##  Major Improvements Over .NET Framework
 
 - Modular architecture (via NuGet packages)
 - Side-by-side versioning
@@ -96,7 +96,7 @@ Provides fundamental APIs:
 
 ---
 
-## 🏗 Architecture Components
+##  Architecture Components
 
 - **CoreCLR** – Runtime engine
 - **CoreFX** – Core libraries
@@ -105,7 +105,7 @@ Provides fundamental APIs:
 
 ---
 
-## 📊 .NET Core Versions
+##  .NET Core Versions
 
 | Version | Year | Support | Notes                   |
 | ------- | ---- | ------- | ----------------------- |
@@ -117,7 +117,7 @@ Provides fundamental APIs:
 | 3.0     | 2019 | STS     | WinForms/WPF support    |
 | 3.1     | 2019 | **LTS** | Final .NET Core version |
 
-> 🔔 After version 3.1, the “Core” branding was removed and merged into unified .NET.
+>  After version 3.1, the “Core” branding was removed and merged into unified .NET.
 
 ---
 
@@ -134,7 +134,7 @@ Into one single platform called **.NET**.
 
 ---
 
-## 📌 Version Timeline
+##  Version Timeline
 
 | Version | Year | Support | Highlights             |
 | ------- | ---- | ------- | ---------------------- |
@@ -146,7 +146,7 @@ Into one single platform called **.NET**.
 
 ---
 
-## 🔑 Key Features of Unified .NET
+##  Key Features of Unified .NET
 
 - Single SDK & runtime
 - Cross-platform
@@ -159,7 +159,7 @@ Into one single platform called **.NET**.
 
 ---
 
-## 📦 Modern Application Models
+##  Modern Application Models
 
 - Web: ASP.NET Core
 - Desktop: WinForms, WPF
@@ -173,7 +173,7 @@ Into one single platform called **.NET**.
 
 # 4️⃣ ASP.NET Evolution
 
-## 📌 ASP.NET (Classic)
+##  ASP.NET (Classic)
 
 - Runs only on .NET Framework
 - System.Web dependency
@@ -181,7 +181,7 @@ Into one single platform called **.NET**.
 
 ---
 
-## 📌 ASP.NET Core
+##  ASP.NET Core
 
 ASP.NET Core is a complete rewrite, not a version upgrade.
 

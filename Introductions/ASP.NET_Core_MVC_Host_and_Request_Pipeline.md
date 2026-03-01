@@ -193,11 +193,18 @@ Response
 
 Middleware that serves static files from the `wwwroot` folder.
 
+```csharp
+app.UseStaticFiles();
+```
+
 ### MapStaticAssets()
 
 Maps static web assets as endpoints (mainly used in Blazor + Razor
 Components hybrid apps).
 
+```csharp
+app.MapStaticAssets();
+```
 ------------------------------------------------------------------------
 
 ## Default Routing
@@ -227,4 +234,43 @@ app.MapControllerRoute(
 standard MVC default route, while MapControllerRoute() allows full
 customization of controller routing."
 
-✔ True
+### Full config Program.cs (MVC)
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+
+//config connection string
+//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+//builder.Services.AddDbContext<AppDbContext>(
+//    options => options.UseSqlServer(connectionString)
+//);
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+   
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.UseStaticFiles();
+app.MapStaticAssets();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}")
+    .WithStaticAssets();
+
+app.Run();
+```
+
