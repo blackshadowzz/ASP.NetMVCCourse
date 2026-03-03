@@ -4,7 +4,6 @@
 ```
 Users
 Roles
-Customers
 Categories
 Products
 Carts
