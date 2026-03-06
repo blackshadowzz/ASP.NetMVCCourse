@@ -1,4 +1,8 @@
-# 5. Model Binding
+ខាងក្រោមនេះជាការពន្យល់លម្អិតអំពី **Model Binding ក្នុង ASP.NET Core MVC** ជាមួយនឹង **ឧទាហរណ៍កូដ** ដើម្បីអោយងាយយល់។
+
+---
+
+# 5. Model Binding (ASP.NET Core MVC)
 
 **Model Binding** គឺជាប្រព័ន្ធមួយក្នុង ASP.NET Core MVC ដែលធ្វើការបំលែង និងផ្គូរផ្គង **ទិន្នន័យពី HTTP Request** ទៅកាន់ **parameters របស់ Action Method នៅក្នុង Controller** ដោយស្វ័យប្រវត្តិ។
 
@@ -19,8 +23,8 @@ ASP.NET Core MVC អាច bind ទិន្នន័យពី៖
 https://example.com/Product/Details?id=5
 ```
 
-- `id=5` គឺជា **Query String**
-- MVC នឹង bind តម្លៃនេះទៅ parameter `id`
+* `id=5` គឺជា **Query String**
+* MVC នឹង bind តម្លៃនេះទៅ parameter `id`
 
 ---
 
@@ -30,11 +34,11 @@ https://example.com/Product/Details?id=5
 
 ### Primitive Types ឧទាហរណ៍
 
-- `string`
-- `int`
-- `bool`
-- `decimal`
-- `DateTime`
+* `string`
+* `int`
+* `bool`
+* `decimal`
+* `DateTime`
 
 ### លក្ខខណ្ឌសំខាន់
 
@@ -65,9 +69,9 @@ public class ProductController : Controller
 
 ### Explanation
 
-- Query String: `id=10`
-- MVC bind `10` → parameter `id`
-- Action method ទទួលបាន `id = 10`
+* Query String: `id=10`
+* MVC bind `10` → parameter `id`
+* Action method ទទួលបាន `id = 10`
 
 ---
 
@@ -77,9 +81,9 @@ public class ProductController : Controller
 
 ```html
 <form asp-action="Login" method="post">
-  <input type="text" name="username" />
-  <input type="password" name="password" />
-  <button type="submit">Login</button>
+    <input type="text" name="username" />
+    <input type="password" name="password" />
+    <button type="submit">Login</button>
 </form>
 ```
 
@@ -145,13 +149,15 @@ public class Student
 
 ```html
 <form asp-action="Create" method="post">
-  <input type="text" name="Id" placeholder="Student Id" />
 
-  <input type="text" name="Name" placeholder="Student Name" />
+    <input type="text" name="Id" placeholder="Student Id" />
 
-  <input type="number" name="Age" placeholder="Student Age" />
+    <input type="text" name="Name" placeholder="Student Name" />
 
-  <button type="submit">Save</button>
+    <input type="number" name="Age" placeholder="Student Age" />
+
+    <button type="submit">Save</button>
+
 </form>
 ```
 
@@ -191,19 +197,21 @@ student.Age = 20
 
 ---
 
-# Example 4: Using Razor Tag Helper
+# Example 4: Using Razor Tag Helper (Recommended)
 
 ### View
 
 ```html
 <form asp-action="Create" method="post">
-  <input asp-for="Id" class="form-control" />
 
-  <input asp-for="Name" class="form-control" />
+    <input asp-for="Id" class="form-control" />
 
-  <input asp-for="Age" class="form-control" />
+    <input asp-for="Name" class="form-control" />
 
-  <button type="submit">Save</button>
+    <input asp-for="Age" class="form-control" />
+
+    <button type="submit">Save</button>
+
 </form>
 ```
 
@@ -244,3 +252,5 @@ ASP.NET MVC នឹងស្វែងរកតម្លៃតាមលំដា�
 | Important Rule       | Request key ត្រូវតែដូច Parameter ឬ Property Name |
 
 ---
+
+បើអ្នកចង់ ខ្ញុំអាចបង្កើត **Diagram Flow Model Binding (User → MVC → Controller → Model)** ដែលល្អសម្រាប់ **ដាក់ក្នុង Slide បង្រៀន**។
