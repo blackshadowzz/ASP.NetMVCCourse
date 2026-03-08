@@ -9,6 +9,8 @@
 Layout គឺជា “គ្រោងឆ្អឹង” រួម (shared template) ដែលបង្ហាញនៅគ្រប់ទំព័រ។  
 ឯកសារ: **Views/Shared/\_Layout.cshtml**
 
+[មើលមេរៀន​​ Page Layout](../../Views/5-Page_Layout.md)
+
 #### ឧទាហរណ៍កែប្រែ \_Layout.cshtml (បន្ថែម Navbar សាមញ្ញ)
 
 ```html
