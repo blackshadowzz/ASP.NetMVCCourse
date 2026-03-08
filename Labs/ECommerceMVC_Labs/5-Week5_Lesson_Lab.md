@@ -1,6 +1,6 @@
 # សប្តាហ៍ទី៥ – Controllers & Views
 
-### 1. Controller
+## 1. Controller
 
 Controller ជា C# class ដែលប្រមូលផ្តុំដោយpublic methods។
 
@@ -8,7 +8,7 @@ Controller ជា C# class ដែលប្រមូលផ្តុំដោយpu
 - បង្កើត model (create model)វាតំណើរការ(execute)នូវ application logicហើយបង្កើត model។
 - និងបញ្ជួនចំលើយតបទៅ user វិញ(send the response)ជាចុងក្រោយវានិងបោះតំលៃត្រឡឡប់ទៅវិញក្នុងទំរង់ជា​ html/json/xmlឬទំរង់ផ្សេងទៀតដែលអ្នកប្រើប្រាស់បានស្នើរសុំ។
 
-#### 1.2 ការបង្កើត controller
+### 1.2 ការបង្កើត controller
 
 - ចុចម៉ៅស្តាំលើថត controllers
 - ចុចពាក្យថា add  controller
@@ -17,7 +17,7 @@ Controller ជា C# class ដែលប្រមូលផ្តុំដោយpu
 - រួចហើយចុចពាក្ស Add
   ![alt text](Images/image.png)
 
-#### 1.3 Action Methods ក្នុង Controller
+### 1.3 Action Methods ក្នុង Controller
 
 Action method គឺជា method ក្នុង class Controller ដែល៖
 
@@ -35,7 +35,7 @@ Action method គឺជា method ក្នុង class Controller ដែល៖
 
 ---
 
-#### 1.4 វិធីផ្ទេរទិន្នន័យទៅ View (3 វិធីសំខាន់) ពី Controller
+### 1.4 វិធីផ្ទេរទិន្នន័យទៅ View (3 វិធីសំខាន់) ពី Controller
 
 | វិធី         | ប្រភេទ             | លក្ខណៈពិសេស                          | ឧទាហរណ៍ក្នុង Controller            | ប្រើនៅ View យ៉ាងម៉េច?                   |
 | ------------ | ------------------ | ------------------------------------ | ---------------------------------- | --------------------------------------- |
@@ -59,7 +59,7 @@ Action method គឺជា method ក្នុង class Controller ដែល៖
 
 [មើលមេរៀន Views](../../Views/1-Views.md)
 
-#### 3.1 ទីតាំងសម្រាប់ទុកViews
+### 3.1 ទីតាំងសម្រាប់ទុកViews
 
 - View File អាចនៅក្នុង៖
   - Views/<Controller  Name>/ViewName.cshtml
@@ -67,7 +67,7 @@ Action method គឺជា method ក្នុង class Controller ដែល៖
 
 ![alt text](Images/image2.png)
 
-#### 3.2 ការបង្កើត view?
+### 3.2 ការបង្កើត view?
 
 - គ្រប់ views ទាំងអស់ត្រូវស្ថិតនៅក្នុងថត views/<Controller Name> ឬ views/Shared
 - គ្រប់ views ដែលបោះតំលៃជា markup ត្រូវមានកន្ទុយជា \*.cshtml(C#)
@@ -75,7 +75,7 @@ Action method គឺជា method ក្នុង class Controller ដែល៖
   - ការបង្កើតចេញពី​ action method របស់​ controller ណាមួយ
   - និងទី២បង្កើតview ចេញពីថតរង (controller sub directory)ដោយផ្ទាល់តែម្តង
 
-#### 2.3 Partial View
+### 2.3 Partial View
 
 - **Partial View**  
   → View តូចៗដែលអាច reuse បាន (ឧ. \_ProductCard.cshtml, \_Pagination.cshtml)  
@@ -83,9 +83,9 @@ Action method គឺជា method ក្នុង class Controller ដែល៖
 
 ---
 
-### ២. ឧទាហរណ៍បន្ថែម
+## 3. ឧទាហរណ៍បន្ថែម
 
-#### ឧទាហរណ៍ ១៖ ProductsController បង្ហាញបញ្ជីផលិតផល
+### ឧទាហរណ៍ ១៖ ProductsController បង្ហាញបញ្ជីផលិតផល
 
 ```csharp
 public class ProductsController : Controller
@@ -143,7 +143,7 @@ public class ProductsController : Controller
 
 ---
 
-#### ឧទាហរណ៍ ២៖ Partial View សម្រាប់ Product Card
+### ឧទាហរណ៍ ២៖ Partial View សម្រាប់ Product Card
 
 **Views/Shared/\_ProductCard.cshtml**
 
@@ -178,7 +178,7 @@ public class ProductsController : Controller
 
 ---
 
-### ៣. Lab សប្តាហ៍ទី៥
+## 4. Lab សប្តាហ៍ទី៥
 
 **គោលដៅ**
 
