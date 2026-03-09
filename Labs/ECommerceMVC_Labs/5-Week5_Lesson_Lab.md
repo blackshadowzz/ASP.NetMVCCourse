@@ -11,8 +11,8 @@ Controller ជា C# class ដែលប្រមូលផ្តុំដោយpu
 ### 1.2 ការបង្កើត controller
 
 - ចុចម៉ៅស្តាំលើថត controllers
-- ចុចពាក្យថា add  controller
-- ជ្រើសរើស controller template  MVC empty  Add
+- ចុចពាក្យថា add -> controller
+- ជ្រើសរើស controller template -> MVC empty -> Add
 - ដាក់ឈ្មោះcontroller(ឈ្មោះ controller ត្រូវបញ្ចប់ដោយController)
 - រួចហើយចុចពាក្ស Add
   ![alt text](Images/image.png)
