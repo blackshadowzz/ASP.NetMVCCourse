@@ -8,16 +8,16 @@ Controller ជា C# class ដែលប្រមូលផ្តុំដោយpu
 - បង្កើត model (create model)វាតំណើរការ(execute)នូវ application logicហើយបង្កើត model។
 - និងបញ្ជួនចំលើយតបទៅ user វិញ(send the response)ជាចុងក្រោយវានិងបោះតំលៃត្រឡឡប់ទៅវិញក្នុងទំរង់ជា​ html/json/xmlឬទំរង់ផ្សេងទៀតដែលអ្នកប្រើប្រាស់បានស្នើរសុំ។
 
-### 1.2 ការបង្កើត controller
+### 1.1 ការបង្កើត controller
 
 - ចុចម៉ៅស្តាំលើថត controllers
 - ចុចពាក្យថា add -> controller
 - ជ្រើសរើស controller template -> MVC empty -> Add
 - ដាក់ឈ្មោះcontroller(ឈ្មោះ controller ត្រូវបញ្ចប់ដោយController)
-- រួចហើយចុចពាក្ស Add
+- រួចហើយចុចពាក្ស -> Add
   ![alt text](Images/image.png)
 
-### 1.3 Action Methods ក្នុង Controller
+### 1.2 Action Methods ក្នុង Controller
 
 Action method គឺជា method ក្នុង class Controller ដែល៖
 
@@ -35,7 +35,7 @@ Action method គឺជា method ក្នុង class Controller ដែល៖
 
 ---
 
-### 1.4 វិធីផ្ទេរទិន្នន័យទៅ View (3 វិធីសំខាន់) ពី Controller
+### 1.3 វិធីផ្ទេរទិន្នន័យទៅ View (3 វិធីសំខាន់) ពី Controller
 
 | វិធី         | ប្រភេទ             | លក្ខណៈពិសេស                          | ឧទាហរណ៍ក្នុង Controller            | ប្រើនៅ View យ៉ាងម៉េច?                   |
 | ------------ | ------------------ | ------------------------------------ | ---------------------------------- | --------------------------------------- |
@@ -59,7 +59,7 @@ Action method គឺជា method ក្នុង class Controller ដែល៖
 
 [មើលមេរៀន Views](../../Views/1-Views.md)
 
-### 3.1 ទីតាំងសម្រាប់ទុកViews
+### 2.1 ទីតាំងសម្រាប់ទុកViews
 
 - View File អាចនៅក្នុង៖
   - Views/<Controller  Name>/ViewName.cshtml
@@ -67,7 +67,7 @@ Action method គឺជា method ក្នុង class Controller ដែល៖
 
 ![alt text](Images/image2.png)
 
-### 3.2 ការបង្កើត view?
+### 2.2 ការបង្កើត view?
 
 - គ្រប់ views ទាំងអស់ត្រូវស្ថិតនៅក្នុងថត views/<Controller Name> ឬ views/Shared
 - គ្រប់ views ដែលបោះតំលៃជា markup ត្រូវមានកន្ទុយជា \*.cshtml(C#)

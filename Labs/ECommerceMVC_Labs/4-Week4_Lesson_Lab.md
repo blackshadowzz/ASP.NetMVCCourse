@@ -4,10 +4,14 @@
 
 នៅសប្តាហ៍នេះ យើងនឹងផ្តោតលើការធ្វើឱ្យ **UI** របស់ Project ឲ្យកាន់តែល្អ និងមានភាពស៊ីសង្វាក់គ្នា រួមទាំងការបង្កើត/កែប្រែ **Category** ដោយប្រើ **Form** និង **Tag Helpers**។
 
-## ១. កែប្រែ Layout (\_Layout.cshtml)
+## ១. Layout (\_Layout.cshtml)
 
-Layout គឺជា “គ្រោងឆ្អឹង” រួម (shared template) ដែលបង្ហាញនៅគ្រប់ទំព័រ។  
+**Layout** គឺជា “គ្រោងឆ្អឹង” រួម (shared template) ដែលបង្ហាញនៅគ្រប់ទំព័រ។  
 ឯកសារ: **Views/Shared/\_Layout.cshtml**
+
+**ViewImport** គឺជាកន្លែងសម្រាប់ Import នូវ namespace រួម ដែល share ទៅគ្រប់ Razor View ទាំងអស់
+
+**ViewStart** គឺជាកន្លែងកំណត់ Layout រួមសម្រាប់ Default Layout ហើយ shared គ្រប់ Child​ views ទាំងអស់​នៅក្នុង Views folder
 
 [មើលមេរៀន​​ Page Layout](../../Views/5-Page_Layout.md)
 
@@ -93,6 +97,12 @@ Layout គឺជា “គ្រោងឆ្អឹង” រួម (shared templ
 - ប្រើ Bootstrap 5 (តាម default របស់ ASP.NET Core MVC template)
 
 ---
+
+## Tag Helpers
+
+**Tag Helpers** នៅក្នុង **ASP.NET Core MVC / Razor Pages** ជា **feature** ដែលអនុញ្ញាតឲ្យ **server-side code** ចូលរួមក្នុងការបង្កើត និង **render HTML elements** ក្នុង Razor view។ វាផ្ដល់ភាពងាយស្រួល និង type-safe ក្រៅពីការសរសេរ HTML ធម្មតា។
+
+[មើលមេរៀនលម្អិត](../../Models/2-Form.md)​​
 
 ### ២. Tag Helpers សំខាន់ៗដែលត្រូវប្រើ
 
