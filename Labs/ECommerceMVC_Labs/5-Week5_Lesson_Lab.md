@@ -52,167 +52,195 @@ Action method គឺជា method ក្នុង class Controller ដែល៖
 
 ---
 
-## 2. Views
+## 3. Lab Week 5
 
-- View ជាអ្វីៗដែលអ្នកប្រើប្រាស់មើលនូវទិន្ន័យឃើញ(សម្រាប់បង្ហាញModel)លើbrowser ។
-- View​ File មានកន្ទុយ\*.cshtml សម្រាប់C#។
+### ជំហានទី១: បង្កើត Model → Product.cs
 
-[មើលមេរៀន Views](../../Views/1-Views.md)
-
-### 2.1 ទីតាំងសម្រាប់ទុកViews
-
-- View File អាចនៅក្នុង៖
-  - Views/<Controller  Name>/ViewName.cshtml
-  - Views/Shared/ViewName.cshtml
-
-![alt text](Images/image2.png)
-
-### 2.2 ការបង្កើត view?
-
-- គ្រប់ views ទាំងអស់ត្រូវស្ថិតនៅក្នុងថត views/<Controller Name> ឬ views/Shared
-- គ្រប់ views ដែលបោះតំលៃជា markup ត្រូវមានកន្ទុយជា \*.cshtml(C#)
-- គេអាចបង្កើត view បានតាមពីរបៀបគឺ៖
-  - ការបង្កើតចេញពី​ action method របស់​ controller ណាមួយ
-  - និងទី២បង្កើតview ចេញពីថតរង (controller sub directory)ដោយផ្ទាល់តែម្តង
-
-### 2.3 Partial View
-
-- **Partial View**  
-  → View តូចៗដែលអាច reuse បាន (ឧ. \_ProductCard.cshtml, \_Pagination.cshtml)  
-  → ដើម្បីបង្ហាញ partial view យើងប្រើ `@await Html.PartialAsync("_ProductCard", model)` ឬ `<partial name="..." />`
-
----
-
-## 3. ឧទាហរណ៍បន្ថែម
-
-### ឧទាហរណ៍ ១៖ ProductsController បង្ហាញបញ្ជីផលិតផល
+នៅក្នុង folder **Models** បន្ថែម class ដូចខាងក្រោម៖
 
 ```csharp
-public class ProductsController : Controller
+namespace YourProjectName.Models
 {
-    public IActionResult Index()
+    public class Product
     {
-        var products = new List<Product>
-        {
-            new Product { Id = 1, Name = "ទូរស័ព្ទ iPhone 14", Price = 899.00m, CategoryName = "គ្រឿងអេឡិចត្រូនិក" },
-            new Product { Id = 2, Name = "អាវយឺត Nike", Price = 35.00m, CategoryName = "សម្លៀកបំពាក់" }
-        };
-
-        ViewBag.PageTitle = "បញ្ជីផលិតផលទាំងអស់";
-        ViewData["TotalProducts"] = products.Count;
-
-        return View(products);
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public string CategoryName { get; set; } = string.Empty;
     }
 }
 ```
 
-**Views/Products/Index.cshtml**
+(ប្តូរ `YourProjectName` ទៅជា namespace របស់ project របស់អ្នក)
 
-```
-@model List<Product>
+### ជំហានទី២: បង្កើត ProductsController និង Action Index
 
-@{
-    ViewData["Title"] = ViewBag.PageTitle;
-}
-
-<h1>@ViewData["Title"]</h1>
-<p>ចំនួនផលិតផលសរុប៖ @ViewData["TotalProducts"]</p>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ល.រ</th>
-            <th>ឈ្មោះ</th>
-            <th>តម្លៃ</th>
-            <th>ប្រភេទ</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var p in Model)
-        {
-            <tr>
-                <td>@p.Id</td>
-                <td>@p.Name</td>
-                <td>@p.Price.ToString("C")</td>
-                <td>@p.CategoryName</td>
-            </tr>
-        }
-    </tbody>
-</table>
-```
-
----
-
-### ឧទាហរណ៍ ២៖ Partial View សម្រាប់ Product Card
-
-**Views/Shared/\_ProductCard.cshtml**
-
-```html
-@model ECommerceApp.Models.Product
-
-<div class="card mb-3" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">@Model.Name</h5>
-    <p class="card-text">តម្លៃ៖ @Model.Price.ToString("C")</p>
-    <p class="card-text text-muted">@Model.CategoryName</p>
-    <a
-      asp-controller="Products"
-      asp-action="Details"
-      asp-route-id="@Model.Id"
-      class="btn btn-primary"
-      >Details</a
-    >
-  </div>
-</div>
-```
-
-**បញ្ចូលក្នុង Index.cshtml**
-
-```html
-<div class="row">
-  @foreach (var product in Model) {
-  <div class="col-md-4">@await Html.PartialAsync("_ProductCard", product)</div>
-  }
-</div>
-```
-
----
-
-## 4. Lab សប្តាហ៍ទី៥
-
-**គោលដៅ**
-
-- បង្កើត static UI សម្រាប់បញ្ជីផលិតផល (Product listing)
-- បង្កើតនិងប្រើ Layout template រួម
-- ប្រើ Tag Helpers សម្រាប់ navigation
-
-**ជំហាន Lab**
-
-1. បង្កើត **Product.cs** (Model) ក្នុង folder Models
+នៅក្នុង folder **Controllers** បន្ថែម class ថ្មីឈ្មោះ **ProductsController.cs**
 
 ```csharp
-public class Product
+using Microsoft.AspNetCore.Mvc;
+using YourProjectName.Models; // ប្តូរ namespace ឲ្យត្រូវ
+using System.Collections.Generic;
+
+namespace YourProjectName.Controllers
 {
-    public int Id { get; set; }
-    public string Name { get; set; } = string.Empty;
-    public decimal Price { get; set; }
-    public string CategoryName { get; set; } = string.Empty;
+    public class ProductsController : Controller
+    {
+        // បញ្ជីផលិតផលសម្រាប់សាកល្បង (ក្រោយមកប្តូរទៅ database)
+        private static readonly List<Product> _products = new List<Product>
+        {
+            new Product { Id = 1, Name = "ទូរស័ព្ទ Samsung A55", Price = 399.99m, CategoryName = "ឧបករណ៍អេឡិចត្រូនិក" },
+            new Product { Id = 2, Name = "កាសស្តាប់ Sony WH-1000XM5", Price = 349.00m, CategoryName = "ឧបករណ៍សំឡេង" },
+            new Product { Id = 3, Name = "កុំព្យូទ័រ Laptop Dell XPS 13", Price = 1299.00m, CategoryName = "កុំព្យូទ័រ" },
+            new Product { Id = 4, Name = "នាឡិកា Smartwatch Apple Watch Series 9", Price = 429.00m, CategoryName = "ឧបករណ៍ពាក់" }
+        };
+
+        // GET: /Products ឬ /Products/Index
+        public IActionResult Index()
+        {
+            return View(_products);
+        }
+    }
 }
 ```
 
-2. បង្កើត **ProductsController** និង Action Index
+### ជំហានទី៣: បង្កើត View → Views/Products/Index.cshtml
 
-3. បង្កើត **Views/Products/Index.cshtml** ដោយបង្ហាញតារាង ឬ card layout
+បង្កើត folder **Products** នៅក្នុង **Views** (បើមិនទាន់មាន) រួចបន្ថែម file **Index.cshtml**
 
-4. កែ **\_Layout.cshtml** (Views/Shared)
-   - បន្ថែម link “Products” ក្នុង navbar
+```cshtml
+@model IEnumerable<YourProjectName.Models.Product>
 
-5. បង្កើត **Partial View** \_ProductCard.cshtml នៅក្នុង Views/Shared  
-   បន្ថែមក្នុង Index.cshtml ដោយប្រើ `@await Html.PartialAsync(...)`
+@{
+    ViewData["Title"] = "បញ្ជីផលិតផល";
+}
 
-6. Run និងសាកល្បង URL: `/Products` ឬ `/Products/Index`
+<h1 class="text-center mb-4">បញ្ជីផលិតផល</h1>
 
-**កិច្ចការ Bonus**
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var product in Model)
+    {
+        <div class="col">
+            @await Html.PartialAsync("_ProductCard", product)
+        </div>
+    }
+</div>
 
-- បន្ថែម Action **Details(int id)** ដែលបង្ហាញព័ត៌មានផលិតផលតែមួយ
-- បន្ថែម link “មើលលម្អិត” នៅក្នុងតារាង/កាតនីមួយៗ (ប្រើ Tag Helper `asp-action="Details" asp-route-id="..."`)
+@if (!Model.Any())
+{
+    <p class="text-center text-muted mt-5">មិនមានផលិតផលនៅឡើយទេ...</p>
+}
+```
+
+(យើងប្រើ **Partial View** សម្រាប់ card ដើម្បីងាយស្រួលកែប្រែ)
+
+### ជំហានទី៤: បង្កើត Partial View → Views/Shared/\_ProductCard.cshtml
+
+បន្ថែម file ថ្មីនៅក្នុង **Views/Shared** ឈ្មោះ **\_ProductCard.cshtml**
+
+```cshtml
+@model YourProjectName.Models.Product
+
+<div class="card h-100 shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text text-muted">@Model.CategoryName</p>
+        <p class="card-text fw-bold text-success">
+            $@Model.Price.ToString("N2")
+        </p>
+    </div>
+    <div class="card-footer bg-transparent border-0 text-center">
+        <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.Id"
+           class="btn btn-outline-primary btn-sm">
+            មើលលម្អិត
+        </a>
+    </div>
+</div>
+```
+
+### ជំហានទី៥: កែប្រែ \_Layout.cshtml (បន្ថែម link “Products” ក្នុង navbar)
+
+បើក file **Views/Shared/\_Layout.cshtml** រកផ្នែក `<nav>` ឬ `<ul class="navbar-nav">` រួចបន្ថែម link ដូចខាងក្រោម (ប្រើ Tag Helper):
+
+```html
+...
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" asp-controller="Home" asp-action="Index"
+      >E-Commerce</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" asp-controller="Products" asp-action="Index"
+            >Products</a
+          >
+          <!-- Modify here-->
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+...
+<main role="main" class="pb-3">@RenderBody()</main>
+```
+
+### ជំហាន Bonus: បន្ថែម Action Details និង View Details
+
+1. បន្ថែម Action នៅក្នុង **ProductsController.cs**
+
+```csharp
+// GET: /Products/Details/5
+public IActionResult Details(int? id)
+{
+    if (id == null) return NotFound();
+
+    var product = _products.FirstOrDefault(p => p.Id == id);
+    if (product == null) return NotFound();
+
+    return View(product);
+}
+```
+
+2. បន្ថែម View → **Views/Products/Details.cshtml**
+
+```cshtml
+@model YourProjectName.Models.Product
+
+@{
+    ViewData["Title"] = "ព័ត៌មានលម្អិតផលិតផល";
+}
+
+<h1 class="text-center mb-4">@Model.Name</h1>
+
+<div class="card mx-auto" style="max-width: 500px;">
+    <div class="card-body">
+        <h4 class="card-title">@Model.Name</h4>
+        <p class="card-text"><strong>ប្រភេទ៖</strong> @Model.CategoryName</p>
+        <p class="card-text"><strong>តម្លៃ៖</strong> <span class="text-success fw-bold">$@Model.Price.ToString("N2")</span></p>
+        <p class="card-text"><strong>ID៖</strong> @Model.Id</p>
+    </div>
+    <div class="card-footer text-center">
+        <a asp-action="Index" class="btn btn-secondary">ត្រឡប់ទៅបញ្ជី</a>
+    </div>
+</div>
+```
+
+### ជំហានចុងក្រោយ: Run និងសាកល្បង
+
+- Run project (F5 ឬ `dotnet run`)
+- ចូលទៅ URL:
+  - http://localhost:xxxx/Products ឬ http://localhost:xxxx/Products/Index
+- គួរឃើញបញ្ជីផលិតផលជា card layout
+- ចុច “មើលលម្អិត” គួរទៅទំព័រ Details បាន
