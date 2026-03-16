@@ -1,4 +1,4 @@
-# សប្តាហ៍ទី៥ – Controllers & Views
+# សប្តាហ៍ទី៥ – Controllers
 
 ## 1. Controller
 
