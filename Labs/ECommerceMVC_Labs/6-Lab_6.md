@@ -53,6 +53,7 @@ public IActionResult Edit(int? id)
     return View(product);
 }
 
+[HttpPost]
 public IActionResult Delete(int? id)
 {
     if (id == null) return NotFound();
