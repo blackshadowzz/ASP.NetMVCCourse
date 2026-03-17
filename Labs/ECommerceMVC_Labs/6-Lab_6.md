@@ -1,18 +1,26 @@
 # Lab 6
-We do continue from Lab 5
 
-## Step 1: 
+We do continue from Lab 5
+គោលបំណងរួមនៃ Lab 6
+
+- បន្ថែម Action Methods សម្រាប់ Create, Details, Edit, និង Delete នៅក្នុង ProductsController.cs
+- បង្កើតទំព័រ View សម្រាប់ Create និង Edit
+- ធ្វើឱ្យអ្នកប្រើប្រាស់អាចបន្ថែម មើលលម្អិត កែប្រែ និងលុបផលិតផលបាន
+
+## Step 1:
 
 នៅក្នុង​ ProductsController.cs បន្ថែម action method `Create` `Details` `Edit` `Delete`
 
 ```csharp
 
+[HttpGet]
 public IActionResult Create()
 {
-    ViewBag.Categories=new SelectList(categories,"CategoryName","Id");
+    ViewBag.Categories = new SelectList(categories, "Id", "CategoryName");
     return View();
 }
 
+[HttpPost]
 public IActionResult Create(Product product)
 {
     if (ModelState.IsValid)
@@ -33,12 +41,15 @@ public IActionResult Details(int? id)
     return View(product);
 }
 
+[HttpGet]
 public IActionResult Edit(int? id)
 {
     if (id == null) return NotFound();
 
     var product = products.FirstOrDefault(p => p.Id == id);
-    if (product == null) return NotFound
+    if (product == null) return NotFound();
+
+    ViewBag.Categories = new SelectList(categories, "Id", "CategoryName", product.CategoryId);
     return View(product);
 }
 
@@ -46,7 +57,10 @@ public IActionResult Delete(int? id)
 {
     if (id == null) return NotFound();
 
-    var product = products.Remove(p => p.Id == id);
+    var product = products.FirstOrDefault(p => p.Id == id);
+    if (product == null) return NotFound();
+
+    products.Remove(product);
     return RedirectToAction(nameof(Index));
 }
 ```
@@ -75,12 +89,7 @@ Create Views/Products/Create.cshtml
     </div>
     <div class="form-group mb-2">
         <label asp-for="CategoryId" class="control-label"></label>
-        <select asp-for="CategoryId" class="form-control">
-            @foreach (var category in ViewBag.Categories)
-            {
-                <option value="@category.Id">@category.Name</option>
-            }
-        </select>
+        <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control"></select>
         <span asp-validation-for="CategoryId" class="text-danger"></span>
     </div>
     <div class="form-group mb-3">
@@ -123,12 +132,7 @@ Create Views/Products/Edit.cshtml
     </div>
     <div class="form-group mb-2">
         <label asp-for="CategoryId" class="control-label"></label>
-        <select asp-for="CategoryId" class="form-control">
-            @foreach (var category in ViewBag.Categories)
-            {
-                <option value="@category.Id">@category.Name</option>
-            }
-        </select>
+        <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control"></select>
         <span asp-validation-for="CategoryId" class="text-danger"></span>
     </div>
     <div class="form-group mb-3">
@@ -144,4 +148,3 @@ Create Views/Products/Edit.cshtml
 </form>
 
 ```
-
