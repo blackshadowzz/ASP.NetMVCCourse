@@ -71,6 +71,8 @@ the most common and clean approaches in ASP.NET Core MVC are:
 1. Hard-coded connection string (quick for development/testing)
 2. From appsettings.json (modern style, requires a few extra lines)
 
+---
+
 ### Create Connection service
 
 នៅក្នុង​ project root បង្កើត folder ឈ្មោះថា `Data` នៅក្នុង Data folder បង្កើត folder បន្ថែម `Dappers`
