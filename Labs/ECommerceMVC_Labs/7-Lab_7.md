@@ -184,3 +184,111 @@ public async Task<ActionResult<List<Category>>> Index(string? filter = "")
 }
 
 ```
+
+#### `Details` action method
+
+```csharp
+public async Task<IActionResult> Details(int id)
+{
+    using var connection = dapper.CreateConnection();
+    string sql = "SELECT * FROM Categories WHERE Id = @Id";
+    var category = await connection.QueryFirstOrDefaultAsync<Category>(sql, new { Id = id });
+    if (category == null) return NotFound();
+    return View(category);
+}
+```
+
+#### `Create` action method
+
+```csharp
+public IActionResult Create()
+{
+    return View();
+}
+```
+
+Return Id after insert
+
+```csharp
+[HttpPost]
+public async Task<IActionResult> Create(Category category)
+{
+    if (ModelState.IsValid)
+    {
+        using var connection = dapper.CreateConnection();
+        string sql = @"INSERT INTO Categories (CategoryName, Description, IsActive)
+        VALUES (@CategoryName, @Description, @IsActive)";
+        var id = await connection.QuerySingleAsync<int>(sql, category);
+        return RedirectToAction(nameof(Index));
+    }
+    return View(category);
+}
+```
+
+#### `Edit` action method
+
+```csharp
+public async Task<IActionResult> Edit(int id)
+{
+    using var connection = dapper.CreateConnection();
+    string sql = "SELECT * FROM Categories WHERE Id = @Id";
+    var category = await connection.QueryFirstOrDefaultAsync<Category>(sql, new { Id = id });
+    if (category == null) return NotFound();
+    return View(category);
+}
+```
+
+```csharp
+[HttpPost]
+public async Task<IActionResult> Edit(int id, Category category)
+{
+    if (id != category.Id) return BadRequest();
+    if (ModelState.IsValid)
+    {
+        using var connection = dapper.CreateConnection();
+        string sql = @"UPDATE Categories SET CategoryName = @CategoryName,
+        Description = @Description, IsActive = @IsActive WHERE Id = @Id";
+        await connection.ExecuteAsync(sql, category);
+        return RedirectToAction(nameof(Index));
+    }
+    return View(category);
+}
+```
+
+#### `Delete` action method
+
+```csharp
+[HttpPost, ActionName("Delete")]
+public async Task<IActionResult> DeleteConfirmed(int id)
+{
+    using var connection = dapper.CreateConnection();
+    string sql = "DELETE FROM Categories WHERE Id = @Id";
+    await connection.ExecuteAsync(sql, new { Id = id });
+    return RedirectToAction(nameof(Index));
+}
+```
+
+---
+
+### Views
+
+បង្កើត Views សម្រាប់ Create, Edit, Delete, Index ដូចធម្មតា (Razor syntax) ហើយប្រើ Bootstrap សម្រាប់ styling បើចង់បាន។
+
+Views:
+
+- Views/Categories/Index.cshtml
+- Views/Categories/Create.cshtml
+- Views/Categories/Edit.cshtml
+- Views/Categories/Details.cshtml
+
+### Summary
+
+- Dapper គឺជា Micro ORM ដែលមានល្បឿនខ្លាំង និងស្រាល
+- Dapper ផ្តល់សិទ្ធិគ្រប់គ្រង SQL ទាំងស្រុងដល់ developer
+- Dapper គាំទ្រ SQL Server, PostgreSQL, MySQL, SQLite, Oracle
+- Dapper អាចប្រើសម្រាប់ CRUD operations យ៉ាងងាយស្រួល
+- Dapper គ្មាន features ពេញលេញដូច Entity Framework (គ្មាន Change Tracking, Migration ស្វ័យប្រវត្តិ, LINQ ជាដើម) ប៉ុន្តែវាលឿនខ្លាំង និងស្រាល
+
+### Next Steps: Using Entity Framework Core with SQL Server (ORM)
+
+នៅក្នុង Lab 8 យើងនឹងសិក្សាអំពី Entity Framework Core ដែលជាផ្នែក ORM ពេញលេញសម្រាប់ .NET។ វាផ្តល់ features ដូចជា Change Tracking, Migrations, LINQ, និងការគ្រប់គ្រង database schema ដោយស្វ័យប្រវត្តិ។ យើងនឹងបង្កើត CRUD operations ដូចគ្នា ប៉ុន្តែប្រើ EF Core ជំនួស Dapper។
